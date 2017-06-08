@@ -5,38 +5,41 @@
 <h2>Index</h2>
 <b><font size="20px" color="red">Send Data :</font></b>
 <div id="divData">
-    data = {
-        rooms: [
-            {
-                roomId: "1",
-                roomName: "Name_1",
-                users: null,
-            },
-            {
-                roomId: "2",
-                roomName: "Name_2",
-                users: [
-                    { empId: "empId_1", name: "userName_1" },
-                    { empId: "empId_2", name: "userName_2" }
-                ]
-            }
-        ]
+    {
+    rooms: [
+    {
+    roomId: "1",
+    roomName: "Name_1",
+    users: null,
+    },
+    {
+    roomId: "2",
+    roomName: "Name_2",
+    users: [
+    { empId: "empId_1", name: "userName_1" },
+    { empId: "empId_2", name: "userName_2" }
+    ]
+    }
+    ]
     };
 </div>
 <b><font size="20px" color="red">Back Data :</font></b>
 <div id="divResult"></div>
 
+<b><font size="20px" color="red">Back Data(Api) :</font></b>
+<div id="divApiResult"></div>
+
 <script>
     var data = {
         rooms: [
             {
-                no:1,
+                no: 1,
                 roomId: "1",
                 roomName: "Name_1",
                 users: null,
             },
             {
-                no:2,
+                no: 2,
                 roomId: "2",
                 roomName: "Name_2",
                 users: [
@@ -49,5 +52,9 @@
 
     $.post("/Home/Test", data, function (result) {
         $("#divResult").html(result);
+    });
+
+    $.post("/api/Room", data, function (result) {
+        $("#divApiResult").html(JSON.stringify(result));
     });
 </script>
